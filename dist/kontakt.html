@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Najpiękniejszy park w Krakowie. Poznaj zróżnicowaną ofertę naszych wycieczek. Czy wiedziałeś, że natura w mieście jest na wyciągnięcie ręki?"
+		/>
+		<meta name="author" content="Tomasz Jachno" />
+		<meta name="copyright" content="Forest Group Company Ltd." />
+		<title>Forest Group - Kraków - Skontaktuj się z nami!</title>
+
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<script
+			src="https://kit.fontawesome.com/b87b86af08.js"
+			crossorigin="anonymous"
+		></script>
+		<link rel="stylesheet" href="./dist/css/style.min.css" />
+		<link rel="stylesheet" href="./dist/css/contact.min.css" />
+	</head>
+	<body>
+		<header>
+			<nav class="nav-desktop nav-sticky wrapper">
+	<div class="logo"><i class="fa-solid fa-tree"></i>Forest</div>
+	<div class="nav__list--desktop">
+		<a href="/index.html#home" class="nav__link--desktop">Home</a>
+		<a href="/index.html#aboutus" class="nav__link--desktop">O nas</a>
+		<a href="/index.html#offer" class="nav__link--desktop nav__link--last"
+			>Oferta</a
+		>
+		<a href="/kontakt.html" class="nav__link--desktop">Kontakt</a>
+	</div>
+</nav>
+<nav class="nav-mobile nav-sticky">
+	<div class="wrapper">
+		<button class="nav__button"><i class="fa-solid fa-bars"></i></button>
+		<div class="logo"><i class="fa-solid fa-tree"></i>Forest</div>
+		<div class="nav__list--mobile">
+			<a href="/index.html#home" class="nav__link--mobile" onclick="void(0)"
+				>Home</a
+			>
+			<a href="/index.html#aboutus" class="nav__link--mobile" onclick="void(0)"
+				>O nas</a
+			>
+			<a href="/index.html#offer" class="nav__link--mobile" onclick="void(0)"
+				>Oferta</a
+			>
+			<a href="/kontakt.html" class="nav__link--mobile" onclick="void(0)"
+				>Kontakt</a
+			>
+		</div>
+	</div>
+</nav>
+
+		</header>
+		<section id="contact">
+			<form>
+				<div class="contact__box">
+					<h3>Skontaktuj się z nami!</h3>
+					<div class="contact__form">
+						<label for="name"
+							><i class="fa-solid fa-signature"></i> Imię i nazwisko</label
+						>
+						<input type="text" id="name" placeholder="Podaj imię i nazwisko" />
+						<label for="email"
+							><i class="fa-solid fa-at"></i> Adres e-mail</label
+						>
+						<input type="email" id="email" placeholder="Podaj adres email" />
+						<label for="msg"
+							><i class="fa-regular fa-envelope"></i> Treść wiadomości</label
+						>
+						<textarea
+							name="msg"
+							id="msg"
+							placeholder="Wpisz treść wiadomości..."
+						></textarea>
+						<button class="contact__confirm">Wyślij</button>
+					</div>
+					<div class="contact__agreebox">
+						<p class="contact__agree">
+							<label for="agree">
+								<input
+									type="checkbox"
+									name="agree"
+									id=""
+									class="contact__checkbox"
+								/>
+
+								Wyrażam zgodę na przetwarzanie moich danych osobowych przez
+								Forest Group Company Ltd. ul. Krakowska 00, 00-000 Kraków w celu
+								i w zakresie niezbędnym do realizacji obsługi niniejszego
+								zgłoszenia. Zapoznałem się z treścią informacji o sposobie
+								przetwarzania moich danych osobowych jak w załączniku.
+							</label>
+						</p>
+					</div>
+					<h3>Jak do nas dojechać?</h3>
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2559.898452497732!2d19.890660216435887!3d50.088188079427006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165a326d015c3b%3A0x47a12cd367a1f34e!2sRestauracja%20McDonald&#39;s!5e0!3m2!1spl!2spl!4v1675342147142!5m2!1spl!2spl"
+						allowfullscreen=""
+						loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"
+					></iframe>
+				</div>
+			</form>
+		</section>
+		<footer class="footer footer__bg" id="footer">
+	<div class="footer__container wrapper">
+		<div class="logo footer__logo"><i class="fa-solid fa-tree"></i>Forest</div>
+		<div class="footer__links">
+			<div class="footer__links-category">
+				<p>O nas</p>
+				<ul>
+					<li><a href="#">Historia</a></li>
+					<li><a href="#">Parki</a></li>
+					<li><a href="#">Opinie</a></li>
+				</ul>
+			</div>
+			<div class="footer__links-category">
+				<p>Nasza firma</p>
+				<ul>
+					<li><a href="#">Praca</a></li>
+					<li><a href="#">Kadry</a></li>
+					<li><a href="#">Zarząd</a></li>
+				</ul>
+			</div>
+			<div class="footer__links-category">
+				<p>Dokumenty</p>
+				<ul>
+					<li><a href="#">Wnioski</a></li>
+					<li><a href="#">Rezerwacje</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<hr />
+	<div class="footer__copyright">
+		&copy;<span class="footer__year"></span> Forest Group Company Ltd.
+	</div>
+</footer>
+
+		<script src="/dist/js/script.min.js"></script>
+	</body>
+</html>
