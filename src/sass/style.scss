@@ -1,0 +1,813 @@
+@use "./slideshow";
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.wrapper {
+	margin: 0 auto;
+	max-width: 1200px;
+	width: 100%;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+	font-family: "Montserrat", sans-serif;
+}
+
+body {
+	position: relative;
+	min-height: 100vh;
+}
+
+button {
+	font-family: "Montserrat", sans-serif;
+}
+
+.active {
+	font-weight: 700;
+	text-shadow: 3px -2px 5px rgba(134, 134, 154, 1);
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+h1 {
+	margin-left: 2.5rem;
+}
+
+h2 {
+	margin-bottom: 3rem;
+	text-transform: uppercase;
+	font-size: 3rem;
+	font-weight: lighter;
+	text-align: center;
+}
+h3 {
+	text-align: center;
+}
+
+section,
+article,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	scroll-margin-top: 10rem;
+}
+
+.logo {
+	position: absolute;
+	top: 2.5rem;
+	left: 2.5rem;
+	font-size: 4rem;
+
+	i {
+		margin-right: 0.5rem;
+	}
+}
+
+.mt {
+	margin-top: 5rem;
+}
+
+// NAVIGATION
+
+header {
+	position: sticky;
+	top: 0;
+	width: 100%;
+	background-color: white;
+	z-index: 100;
+}
+
+body {
+	min-height: 100vh;
+	margin: 0;
+}
+
+.nav {
+	&-desktop {
+		display: none;
+		overflow: hidden;
+		height: 10rem;
+	}
+	&-mobile {
+		height: 10rem;
+	}
+	&__list--mobile {
+		position: absolute;
+		top: 10rem;
+		right: 0;
+		width: 100%;
+		display: none;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+	&__link--mobile {
+		width: 100%;
+		padding: 1.5rem 10rem;
+		background-color: rgba(206, 205, 205, 0.8);
+		font-size: 2rem;
+		color: black;
+		text-align: center;
+		z-index: 2;
+		transition: color 0.3s, background-color 0.5s;
+		&:hover,
+		&:active {
+			background-color: black;
+			color: white;
+		}
+	}
+	&__list--desktop {
+		position: relative;
+		font-size: 1.8rem;
+		text-align: right;
+		align-items: center;
+		transform: translateY(-50%);
+	}
+
+	&__link--desktop {
+		padding: 5rem 2rem;
+
+		transition: color 0.3s, background-color 0.3s;
+		&:hover {
+			background-color: black;
+			color: white;
+		}
+	}
+
+	&__button {
+		position: absolute;
+		top: 2.5rem;
+		right: 2.5rem;
+		padding: 0.8rem;
+		font-size: 3rem;
+		border-radius: 5px;
+		background-color: white;
+		transition: transform 0.3s;
+		cursor: pointer;
+
+		&:hover,
+		&:active {
+			transform: scale(110%);
+		}
+	}
+}
+
+.home {
+	&__img {
+		position: relative;
+		height: 30rem;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		background-image: url("/dist/img/header_small.jpg");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+
+		&--shadow {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background-color: rgba(0, 0, 0, 0.6);
+		}
+	}
+
+	&__title {
+		font-size: 1.5rem;
+		color: white;
+		z-index: 5;
+		&--name {
+			margin-left: 2.5rem;
+		}
+	}
+}
+
+// ABOUT US
+
+.aboutus {
+	&__box {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		&--img {
+			img {
+				display: block;
+				padding: 2rem;
+				width: 100%;
+			}
+		}
+		&--text {
+			padding: 2rem;
+			font-size: 1.5rem;
+			line-height: 2.8rem;
+		}
+
+		h3 {
+			font-size: 1.8rem;
+			margin-bottom: 1rem;
+		}
+	}
+}
+
+.family {
+	&__bg {
+		position: relative;
+		margin-top: 5rem;
+		height: 25rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-image: url("/dist/img/forest_small.jpg");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		&--shadow {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+		&--text {
+			padding: 2rem 5rem;
+			color: white;
+			font-size: 1.4rem;
+			border: 2px solid white;
+			z-index: 2;
+		}
+	}
+}
+
+// --------------- OFFER -----------------
+
+.offer {
+	&__description {
+		text-align: center;
+		font-size: 1.5rem;
+		margin-bottom: 5rem;
+	}
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+	&__box {
+		margin-bottom: 3rem;
+		padding: 2rem;
+		width: 30rem;
+		border: 1px solid rgb(209, 209, 209);
+		border-radius: 0.5rem;
+		box-shadow: -0.4rem 0.4rem 0.8rem rgba(161, 161, 163);
+		text-align: center;
+	}
+	&__type {
+		font-size: 1.8rem;
+		font-weight: 400;
+	}
+
+	&__price {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+		font-size: 2.2rem;
+		font-weight: bold;
+	}
+	&__optionsbox {
+		width: 18rem;
+		margin: 0 auto;
+	}
+	&__options {
+		padding: 0.2rem;
+		font-size: 1.5rem;
+		text-align: left;
+		&--grey {
+			color: gray;
+		}
+	}
+
+	&__button {
+		margin-top: 1.5rem;
+		margin-bottom: 1.2rem;
+		padding: 0.8rem 3rem;
+		border: 1px solid rgb(209, 209, 209);
+		border-radius: 3px;
+		box-shadow: -0.2rem 0.2rem 0.4rem rgba(161, 161, 163);
+		background: none;
+		cursor: pointer;
+		transition: color 0.3s, background-color 0.5s;
+
+		&:hover,
+		&:active {
+			background-color: black;
+			color: white;
+		}
+		&--green {
+			background-color: rgb(16, 243, 35);
+			border: 1px solid rgb(16, 243, 35);
+			box-shadow: -0.2rem 0.2rem 0.4rem rgb(16, 243, 35);
+			transition: color 0.3s, background-color 0.5s, box-shadow 0.5s,
+				border 0.5s;
+			&:hover,
+			&:active {
+				background-color: rgb(41, 158, 5);
+				border: 1px solid rgb(41, 158, 5);
+				box-shadow: -0.2rem 0.2rem 0.4rem rgb(41, 158, 5);
+				color: white;
+			}
+		}
+	}
+
+	&__check {
+		margin-top: 2rem;
+		a {
+			color: red;
+			transition: font-size 0.5s;
+			&:hover,
+			&:active {
+				font-size: 2rem;
+			}
+		}
+	}
+	.fa-solid {
+		margin-right: 0.5rem;
+	}
+
+	.fa-check {
+		color: rgb(9, 214, 26);
+	}
+	.premium-center {
+		text-align: center;
+	}
+}
+
+// ------------------ FOOTER ------------------
+
+body {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+footer {
+	margin-top: auto;
+}
+
+.footer {
+	position: relative;
+
+	background-color: rgb(231, 229, 229);
+
+	&__logo {
+		top: 25%;
+		left: 10%;
+	}
+	&__container {
+		display: flex;
+		justify-content: flex-start;
+		position: relative;
+		margin-top: 2rem;
+	}
+	&__links {
+		margin-left: 60%;
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+		&-category {
+			p {
+				margin-top: 0.5rem;
+				margin-bottom: 0.5rem;
+				font-size: 1.3rem;
+				font-weight: bold;
+			}
+			li {
+				margin-left: 0.3rem;
+				margin-bottom: 0.2rem;
+				padding: 0.5rem 0;
+				font-size: 1.1rem;
+				list-style: none;
+			}
+			a {
+				padding: 0.5rem;
+			}
+		}
+	}
+	&__copyright {
+		padding: 1rem;
+		text-align: center;
+	}
+	hr {
+		margin-top: 1rem;
+	}
+}
+///////////// FORM ///////////////
+
+.contact {
+	&__box {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		margin-bottom: 5rem;
+
+		h3 {
+			margin-top: 3rem;
+			margin-bottom: 3rem;
+
+			font-size: 3rem;
+		}
+		iframe {
+			width: 75vw;
+			height: 50vh;
+		}
+	}
+	&__form {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		width: 80vw;
+		max-width: 104rem;
+		padding-bottom: 3rem;
+		background-color: rgb(231, 229, 229);
+		border-radius: 8px;
+
+		label {
+			padding: 1rem;
+			font-size: 1.4rem;
+			font-weight: bold;
+		}
+
+		input {
+			width: 75vw;
+			max-width: 99.2rem;
+			padding: 0.3rem;
+			font-size: 1.6rem;
+			font-family: "Montserrat", sans-serif;
+		}
+
+		textarea {
+			min-width: 75vw;
+			min-height: 40vh;
+			padding: 0.3rem;
+			font-size: 1.6rem;
+			font-family: "Montserrat", sans-serif;
+		}
+	}
+
+	&__confirm {
+		margin-top: 2rem;
+		padding: 1rem 4rem;
+		font-size: 1.6rem;
+		font-weight: bold;
+		border: 1px solid black;
+		border-radius: 5px;
+		background-color: white;
+
+		cursor: pointer;
+		transition: color 0.3s, background-color 0.5s;
+		&:hover,
+		&:active {
+			background-color: black;
+			color: white;
+		}
+	}
+
+	&__agreebox {
+		margin-top: 1rem;
+		width: 70vw;
+		max-width: 100rem;
+		font-size: 1rem;
+	}
+}
+.offers {
+	&__section {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	&__main {
+		margin: 5rem 0;
+	}
+}
+
+.error {
+	&__404 {
+		margin-top: 10vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__text {
+		padding: 2rem;
+		font-size: 4rem;
+		text-align: center;
+	}
+}
+
+@media (min-width: 576px) {
+	h2 {
+		font-size: 4rem;
+	}
+	.aboutus {
+		&__box {
+			&--text {
+				font-size: 1.8rem;
+				line-height: 3rem;
+			}
+			h3 {
+				font-size: 2rem;
+				margin-bottom: 2rem;
+			}
+		}
+	}
+	.family {
+		&__bg {
+			&--text {
+				padding: 2rem 8rem;
+				color: white;
+				font-size: 1.8rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	h1 {
+		margin-left: 4rem;
+		font-size: 3rem;
+	}
+	h2 {
+		font-size: 5rem;
+	}
+	.logo {
+		i {
+			margin-left: 2rem;
+			margin-right: 0.5rem;
+		}
+	}
+
+	.home {
+		&__title--name {
+			margin-left: 4rem;
+			font-size: 2rem;
+		}
+		&__img {
+			background-image: url("/dist/img/header.jpg");
+		}
+	}
+	.aboutus {
+		&__box {
+			&--img {
+				img {
+					padding: 3.5rem;
+				}
+			}
+			&--text {
+				padding: 3.5rem;
+				font-size: 2.2rem;
+				line-height: 3.2rem;
+			}
+
+			h3 {
+				font-size: 3rem;
+				margin-bottom: 3rem;
+			}
+		}
+	}
+
+	.logo {
+		position: relative;
+		left: 0;
+		margin-left: 2rem;
+	}
+	.nav {
+		&-desktop {
+			display: block;
+		}
+		&-mobile {
+			display: none;
+		}
+	}
+	.family {
+		&__bg {
+			background-image: url("/dist/img/forest.jpg");
+
+			&--text {
+				padding: 2rem 10rem;
+				color: white;
+				font-size: 2.2rem;
+			}
+		}
+	}
+	.offer {
+		&__description {
+			font-size: 2rem;
+		}
+		&__container {
+			flex-direction: row;
+		}
+		&__box {
+			width: 25rem;
+			margin-left: 2rem;
+			margin-right: 2rem;
+			padding: 2.4rem 1rem;
+		}
+		&__optionsbox {
+			width: 19rem;
+		}
+		&__options {
+			padding: 0.3rem 0.1rem;
+			font-size: 1.6rem;
+			text-align: left;
+		}
+		&__type {
+			font-size: 2rem;
+		}
+		&__price {
+			font-size: 2.5rem;
+		}
+
+		&__button {
+			font-size: 1.6rem;
+		}
+		&__check {
+			a {
+				color: red;
+				transition: font-size 0.5s;
+				&:hover,
+				&:active {
+					font-size: 2.4rem;
+				}
+			}
+		}
+	}
+	.footer {
+		&__logo {
+			position: absolute;
+			top: 25%;
+			left: 10%;
+		}
+		&__links {
+			display: flex;
+			flex-direction: row;
+			margin-left: 50%;
+			&-category {
+				padding: 0 1rem;
+				p {
+					font-size: 1.5rem;
+				}
+				li {
+					margin-left: 0rem;
+					font-size: 1.2rem;
+					padding: 0.5rem 0;
+				}
+				a {
+					padding: 1rem;
+				}
+			}
+		}
+	}
+	.contact {
+		&__form {
+			label {
+				padding: 1.2rem;
+				font-size: 1.7rem;
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.nav {
+		&__link--desktop {
+			font-size: 2.2rem;
+		}
+		// &__list--desktop {
+		// 	margin-right: 4rem;
+		// }
+	}
+	.aboutus {
+		&__box {
+			display: flex;
+			flex-direction: row;
+			align-items: flex-start;
+			justify-content: center;
+			&--img {
+				img {
+					display: block;
+					margin-left: 2rem;
+					padding: 2rem;
+					width: 50rem;
+				}
+			}
+			&--text {
+				margin-right: 2rem;
+				padding: 2rem;
+				font-size: 1.8rem;
+				line-height: 2.5rem;
+			}
+
+			h3 {
+				font-size: 2.8rem;
+				margin-bottom: 2.5rem;
+			}
+		}
+	}
+	.family {
+		&__bg {
+			&--text {
+				padding: 2rem 12rem;
+				color: white;
+				font-size: 2.6rem;
+			}
+		}
+	}
+	.offer {
+		&__box {
+			width: 26rem;
+			margin-left: 3.5rem;
+			margin-right: 3.5rem;
+			padding: 2.4rem 1rem;
+		}
+		&__optionsbox {
+			width: 21rem;
+		}
+		&__options {
+			padding: 0.3rem 0.1rem;
+			font-size: 1.7rem;
+			text-align: left;
+		}
+		&__type {
+			font-size: 2.3rem;
+		}
+		&__price {
+			font-size: 3rem;
+		}
+
+		&__button {
+			font-size: 1.7rem;
+		}
+	}
+	.footer {
+		&__links {
+			margin-left: 60%;
+		}
+	}
+	.contact {
+		&__box {
+			iframe {
+				width: 75vw;
+				max-width: 99.2rem;
+				height: 40vh;
+			}
+		}
+		&__form {
+			label {
+				padding: 1.4rem;
+				font-size: 1.8rem;
+			}
+			input {
+				width: 75vw;
+				padding: 0.3rem;
+				font-size: 1.6rem;
+			}
+
+			textarea {
+				min-width: 74.4rem;
+				width: 75vw;
+				max-width: 99.2rem;
+				padding: 0.3rem;
+				font-size: 1.6rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.footer {
+		&__logo {
+			top: 25%;
+			left: 10%;
+		}
+		&__links {
+			margin-left: 60%;
+		}
+	}
+}
